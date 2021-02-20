@@ -9,6 +9,10 @@ variable "ssh_key_name" {}
 
 variable "private_key_path" {}
 
+variable "deploy_environment" {
+  default = "DEV"
+}
+
 variable "region" {
   default = "us-east-2"
 }
@@ -76,7 +80,7 @@ resource "aws_security_group" "sg-nodejs-instance" {
   ingress {
     from_port = 80
     to_port = 80
-    protocol = "tcp"
+    protocol = " fftcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
