@@ -12,7 +12,7 @@ node {
     }
     stage('Backend-Init') {
         // Initialize the Terraform configuration
-        dir('03_01_remotestate/remote_resources') {
+        dir('03_02-03_remotestate/remote_resources') {
             sh script: '../../terraform init -input=false'
         }
         
@@ -21,7 +21,7 @@ node {
         // Create Terraform plan for backend resources
         withCredentials([string(credentialsId: 'AWS_ACCESS_KEY', variable: 'aws_access_key'), 
                         string(credentialsId: 'AWS_SECRET_KEY', variable: 'aws_secret_key')]) {
-            dir('03_01_remotestate/remote_resources') {
+            dir('03_02-03_remotestate/remote_resources') {
                 sh script: '../../terraform plan \
                         -out backend.tfplan \
                         -var="aws_access_key=$aws_access_key" \
