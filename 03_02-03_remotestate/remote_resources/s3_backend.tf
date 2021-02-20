@@ -85,7 +85,7 @@ resource "aws_dynamodb_table" "tf_db_statelock" {
 # //////////////////////////////
 resource "aws_iam_user_policy" "terraform_user_dbtable" {
   name = "terraform1"
-  user = data.aws_iam_user.terraform.user_name
+  user = data.aws_iam_user.terraform1.user_name
   policy = <<EOF
 {
     "Version": "2012-10-17",
