@@ -6,7 +6,7 @@ variable "aws_access_key" {}
 variable "aws_secret_key" {}
 
 variable "bucket_name" {
-  default = "red30-tfstate"
+  default = "szhou-tfstate"
 }
 
 # //////////////////////////////
@@ -84,7 +84,7 @@ resource "aws_dynamodb_table" "tf_db_statelock" {
 # IAM POLICY
 # //////////////////////////////
 resource "aws_iam_user_policy" "terraform_user_dbtable" {
-  name = "terraform"
+  name = "terraform1"
   user = data.aws_iam_user.terraform.user_name
   policy = <<EOF
 {
