@@ -21,7 +21,7 @@ provider "aws" {
 # //////////////////////////////
 # TERRAFORM USER
 # //////////////////////////////
-data "aws_iam_user" "terraform" {
+data "aws_iam_user" "terraform1" {
   user_name = "terraform1"
 }
 
@@ -46,7 +46,7 @@ resource "aws_s3_bucket" "red30-tfremotestate" {
             "Sid": "",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "${data.aws_iam_user.terraform.arn}"
+                "AWS": "${data.aws_iam_user.terraform1.arn}"
             },
             "Action": "s3:*",
             "Resource": "arn:aws:s3:::${var.bucket_name}/*"
