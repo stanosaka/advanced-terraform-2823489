@@ -1,6 +1,6 @@
 terraform {
   backend "remote" {
-    organization = "red30"
+    organization = "00root"
 
     workspaces {
       name = "cli-workspace"
